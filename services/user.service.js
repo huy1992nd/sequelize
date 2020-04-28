@@ -1,8 +1,8 @@
 
 const User = require('../models').User;
 class userService {
-    addUser(User) {
-        User.Create(User)
+    addUser(user) {
+        User.create(user)
         .then(user=>{
                 console.log("user was save");
         })
@@ -12,12 +12,11 @@ class userService {
     }
 
     deleteUser(id) {
-        User.delete(User)
-        .then(user=>{
-            console.log("user was delete");
-        })
-        .catch(err=>{
-            console.log(err);
+        User.destroy({ where: { id } })
+        .then(function (user) {
+           console.log('user was delete');
+        }).catch(ex => {
+          console.log(ex);
         });
     }
 }

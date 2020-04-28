@@ -15,7 +15,9 @@ class UserController {
     }
 
     deleteUser(req, res, next){
-        console.log('api delete User', req.body);
+        console.log('api add User', req.body);
+        userService.deleteUser(req.body.id);
+        res.json({});
     }
 
     getListUser(req, res, next){
